@@ -90,11 +90,24 @@ void print_Tree(owo*& root, int level)
 	}
 }
 
+int maxval(owo*& root)
+{
+	if (root->right!= NULL){maxval(root->right);}
+	else {return root->elem;}
+}
+
+int minval(owo*& root)
+{
+	if (root->left != NULL) { minval(root->left); }
+	else { return root->elem; }
+}
+
 int main()
 {
 	setlocale(LC_ALL, "Russian");
 	owo* root = NULL;
 	int a, level = 0;
+	
 	for (size_t i = 0; i < 10; i++)
 	{
 		cout << "dsfdsf" << endl;
@@ -102,7 +115,8 @@ int main()
 		insert(root, a);
 	}
 	print_Tree(root, a);
-
+	cout << maxval(root) << endl;
+	cout << minval(root) << endl;
 
 }
 
